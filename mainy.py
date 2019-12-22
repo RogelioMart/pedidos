@@ -61,11 +61,18 @@ def getProducto():
 
 #--------------------insert----------------------
 #------------------------------------------------
+'''
+This function puts the Producto object into the linked
+list and returns the linked list in alphabetical order.
+'''
 def insert(productList):
 
-    temp = Producto()
+    temp = Producto()#initializes Producto object
 
-    temp = getProducto()
+    temp = getProducto() #gets values of the object
+	
+	if(productList.size == 0):
+		
 
     productList.insert(temp)
 
