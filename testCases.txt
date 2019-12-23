@@ -1,0 +1,72 @@
+1
+f aire
+R88440
+5
+1
+Banda
+515k4
+3
+1
+amortiguador
+59544
+2
+1
+b agua
+T5084
+2
+1
+balatas
+MK667
+3
+1
+balatas
+MK052
+5
+1
+b agua
+T4208
+3
+1
+b agua
+T8080
+2
+2
+
+
+
+#------------RESULT-------------
+
+0
+	Banda
+	515k4
+	3
+
+1
+	amortiguador
+	59544
+	2
+
+2
+	balatas
+	MK052
+	5
+
+3
+	balatas
+	MK667
+	3
+
+4
+	f aire
+	R88440
+	5
+
+5
+	b agua
+	T4208
+	3
+
+6
+	b agua
+	T5084
+	2
