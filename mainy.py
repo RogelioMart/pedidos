@@ -1,6 +1,5 @@
 import openpyxl
 
-
 '''Class Producto
 creates the object for Producto and its initializer
 '''
@@ -8,11 +7,12 @@ class Producto:
 
     cant = 0
     tipo = ""
+	code = ""
     nom = ""
     nextVal = None
 
     # Class initializer
-    def initProducto(self, tipo, nom, cant):
+    def initProducto(self, tipo, nom, code, cant):
         self.tipo = tipo
         self.nom = nom
         self.cant = cant
@@ -36,13 +36,14 @@ class slList:
 
 ''' makeProducto
 @:param String tipo
-@:param String tipo
+@:param String nom
+@:param String code
 @:param Integer cant
 @:return Producto newProducto
 '''
-def makeProducto(tipo, nom, cant):
+def makeProducto(tipo, nom, code, cant):
 
-    newProducto = Producto(tipo, nom, cant)
+    newProducto = Producto(tipo, nom, code, cant)
 
     return (newProducto)
 
@@ -72,6 +73,46 @@ def displayMenu():
 
 '''ENDS displayMenu'''
 
+'''getCode
+@:param String mTipo
+@:return String retVal
+Based on the type input name the function will decide
+a code.
+'''
+def getCode(mTipo):
+	
+	retVal = "Undefined"
+	
+	if (mTipo == "Banda"):
+	
+		retVal = DDR
+	
+	elif(mTipo == "Bomba de Agua"):
+	
+		retVal = "NWP"
+	
+	elif(mTipo == "Amortiguador"):
+	
+		retVal = "MON"
+	
+	elif(mTipo == "Bujias"):
+	
+		retVal = "PLU"
+		
+	elif(mTipo == "Balatas"):
+	
+		retVal = "WVR"
+		
+	elif(mTipo == "Filtro de Aciete"):
+	
+		retVal = "CFI"
+
+	else:
+		print("\nTHE CODE ENDED UP BEING UNDEFINED\n")
+	
+	return(retVal)
+	
+'''ENDS getCode'''
 
 ''' getProduct
 @:return Producto temp
@@ -86,6 +127,8 @@ def getProducto():
     temp.tipo = input("Input type: ")
 
     temp.nom = input("Input name: ")
+	
+	temp.code = getCode(temp.tipo)
 
     temp.cant = int(input("Input quantity: "))
 
@@ -352,6 +395,20 @@ def modElement(productList, ogNode):
 
 '''ENDS modElement'''
 
+'''initArray
+@:return 
+Initializes linked list of linked lists
+'''
+def init2DList(mLList):
+	
+	iter = 0
+	
+	for iter range(11):
+	
+		productList.append(slList())
+	
+'''ENDS initArray'''
+
 ''' decisionMaker
 @:param String mSelect
 @:param slList productList
@@ -407,9 +464,20 @@ def decisionMaker(mSelect, productList):
 #####################MAIN#############################
 ######################################################
 
-select = 0
+select = 0 #Initializes variable
 
-productList = slList()
+'''
+0. Amortiguador
+1. Balatas
+2. Banda
+3. Bomba de Agua
+4. Bujias
+5.Filtro de Aciete 
+'''
+
+productList = [] #creates list
+
+#productList = slList()
 
 while (select != "7"):
     displayMenu()
